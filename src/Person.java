@@ -1,4 +1,4 @@
-public class Person{
+public class Person implements Comparable <Person> {
     private int stdnr;
     private String fnavn;
     private String enavn;
@@ -46,7 +46,6 @@ public class Person{
     public void setGennemsnitkar(double gennemsnitkar) {
         this.gennemsnitkar = gennemsnitkar;
     }
-
     @Override
     public String toString() {
         return "Person{" +
@@ -57,4 +56,14 @@ public class Person{
                 '}';
     }
 
+
+    @Override
+    public int compareTo(Person that) {
+        if(this.getGennemsnitkar()>that.getGennemsnitkar())
+            return -1;
+        if(this.gennemsnitkar == that.gennemsnitkar)
+            return 0;
+        else
+            return 1;
+    }
 }
